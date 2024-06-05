@@ -13,6 +13,20 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
       cy.visit('/')
   });
 
+  it('Deve fazer o login com sucesso', () => {
+    cy.get('.icon-user-unfollow').click()
+    cy.get('#username').type('aluno_ebac@teste.com')
+    cy.get('#password').type('teste@teste.com')
+    cy.get('.woocommerce-form > .button').click()
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, aluno_ebac')
+ 
+  });
+
+  it('Deve buscar os 4 produtos desejados e adicioná-los ao carrinho', () => {
+
+
+  });
+
   it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
       //TODO: Coloque todo o fluxo de teste aqui, considerando as boas práticas e otimizações
       
