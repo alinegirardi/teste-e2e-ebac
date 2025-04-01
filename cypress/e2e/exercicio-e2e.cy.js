@@ -1,4 +1,5 @@
-/// <reference types="cypress" />
+///<reference types="cypress"/>
+import produtosPage from "../support/page_objects/produto"
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
   /*  Como cliente 
@@ -15,6 +16,9 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
 
   it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
       //TODO: Coloque todo o fluxo de teste aqui, considerando as boas práticas e otimizações
+      cy.login('aline.teste@teste.com.br', "teste@123")
+      cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, aline.qa')
+      produtosPage.buscarProduto('Aero Daily Fitness Tee')
       
   });
 
