@@ -18,5 +18,12 @@
         "tamanho": "34",
         "cor": "Green",
         "quantidade": 10
+    },
+
+    {
+        "nomeProduto": "Frankie Sweatshirt",
+        "tamanho": "L",
+        "cor": "White",
+        "quantidade": 2
     }
 ]
