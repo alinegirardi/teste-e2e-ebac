@@ -18,8 +18,13 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
       //TODO: Coloque todo o fluxo de teste aqui, considerando as boas práticas e otimizações
       cy.login('aline.teste@teste.com.br', "teste@123")
       cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, aline.qa')
-      produtosPage.buscarProduto('Aero Daily Fitness Tee')
-      
+      produtosPage.buscarProduto()
+      cy.get('.woocommerce-message > .button').click()
+      cy.get('.checkout-button').click()
+      cy.get('#terms').check()
+      cy.get('#place_order').click()
+      cy.get('.page-title', {timeout:10000}).should('be.visible', 'contain', 'PEDIDO RECEBIDO')
+
   });
 
 

@@ -1,6 +1,6 @@
 class ProdutosPage {
 
-    buscarProduto(nomeProduto, tamanho, cor ){
+    buscarProduto(){
         //ações do método
         
         cy.fixture('produtos').then(dados =>{
@@ -40,7 +40,7 @@ class ProdutosPage {
             cy.get('.button-variable-item-' + dados[3].cor).click()
             cy.get('.input-text').clear().type(dados[3].quantidade)
             cy.get('.single_add_to_cart_button').click()
-            cy.get('.woocommerce-message').should('contain', dados[3].nomeProduto)
+            cy.contains('.woocommerce-message', dados[3].nomeProduto)
         })
     }
 }
