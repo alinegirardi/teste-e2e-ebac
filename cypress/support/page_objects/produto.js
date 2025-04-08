@@ -42,7 +42,17 @@ class ProdutosPage {
             cy.get('.single_add_to_cart_button').click()
             cy.contains('.woocommerce-message', dados[3].nomeProduto)
         })
+        
     }
+
+    finalizarCompra(){
+      cy.get('.woocommerce-message > .button').click()
+      cy.get('.checkout-button').click()
+      cy.get('#terms').check()
+      cy.get('#place_order').click()
+      cy.get('.page-title', {timeout:10000}).should('be.visible', 'contain', 'PEDIDO RECEBIDO')
+    }
+    
 }
 
 export default new ProdutosPage();
