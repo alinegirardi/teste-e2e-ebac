@@ -4,7 +4,7 @@ class CheckoutPage{
         cy.get('.checkout-button').click()
         cy.get('#terms').check()
         cy.get('#place_order').click()
-        cy.get('.page-title', {timeout:5000}).should('be.visible', 'contain', 'PEDIDO RECEBIDO')
+        cy.get('.page-title', {timeout:5000}).should('contain', 'Pedido recebido')
       }
 }
 
